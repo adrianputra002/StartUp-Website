@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Please open console to see Test Cases and Answers</h3>
+</body>
+<script>
+    console.log("Soal 1")
+    console.log("Test Case : 30")
+
+    const scanNumber = (n) => {
+        if (n % 15 == 0) {
+            return "Fish Bash"
+
+        }
+        if (n % 3 == 0) {
+            return "Fish"
+        }
+
+        if (n % 5 == 0) {
+            return "Bash"
+
+        }
+    }
+
+    console.log("Result : " + scanNumber(30))
+    // No 2
+
+    let numberArray = [5, 1, 4, 7, 100, 50, 25, 34, 44]
+    const sortManual = (n) => {
+        for (let x = 0; x <= n.length; x++) {
+            let tempValue = n[x];
+            let tempIndex = x;
+            for (let y = 0; y <= n.length; y++) {
+                if (n[y + 1] < n[y]) {
+                    temp = n[y + 1];
+                    n[y + 1] = n[y]
+                    n[y] = temp
+
+                }
+            }
+        }
+
+        return n
+
+    }
+    console.log("Soal 2")
+    console.log("Test Case : " + numberArray)
+    console.log("Manual Sorted Array : " + sortManual(numberArray))
+
+    // Soal 3
+    let reverseString = "ada";
+    let notReverseString = "closeTheDoor";
+    const checkReverseString = (e) => {
+        let newString = ""
+        for (let i = e.length; i >= 0; i--) {
+            newString += e.charAt(i)
+        }
+
+        if (newString === reverseString) {
+            return true;
+        } else {
+            return false
+        }
+
+    }
+    console.log("Soal 3")
+    console.log("Test Case : " + reverseString)
+    console.log("Test Case Result : " + checkReverseString(reverseString))
+    console.log("Test Case : " + notReverseString)
+    console.log("Test Case Result : " + checkReverseString(notReverseString))
+</script>
+
+</html>

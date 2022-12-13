@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}html {
+  scroll-behavior: smooth;
+}
+.nav-link {
+  @apply mx-8;
+}
+.secondary-btn {
+  padding: 0.5rem 2.5rem;
+  color: rgb(33, 201, 201);
+  outline: 1px solid rgb(33, 201, 201);
+  border-radius: 10px;
+  background-color: transparent;
+}
+.btn-primary{
+  padding: 0.5rem 2.5rem;
+ 
+  border-radius: 4px;
+  color: #fff;
+  background-color: rgb(33, 201, 201);
+  outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-primary:hover{
+  color: rgb(33, 201, 201);
+  background-color: transparent;
+  outline: 1px solid rgb(33, 201, 201);
+}
+.nav-link:hover {
+  color: rgb(33, 201, 201);
+}
+.secondary-btn:hover {
+  color: #fff;
+  background-color: rgb(33, 201, 201);
+  outline: none;
+}
+.nav-kanan-mobile {
+  position: fixed;
+  right: 6%;
+  top: 40px;
+  z-index: 999;
+  display: none;
+}
+.nav-kanan {
+  display: block;
+}
+/* .cust-logo{
+  width: 60px;
+  height: 40px;
+} */
+
+.nav-kanan-mobile span + span {
+  width: 14px;
+  margin: 6px 0px 0px 6px;
+}
+.nav-kanan-mobile span {
+  width: 20px;
+  height: 2px;
+  display: block;
+  background-color: rgb(140, 148, 186);
+  border-radius: 2px;
+  transition: all 0.375s ease-in-out 0s;
+}
+.nav-kanan-mobile.active span:first-child {
+  transform: rotate(45deg) translate(3px, 4px);
+  transition: all 0.375s ease-in-out 0s;
+}
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 400px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: 400px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gmap_iframe {
+    width: 100% !important;
+    height: 400px !important;
+}
+.card{
+  height: auto;
+  width: 500px;
+}
+.nav-kanan-mobile.active span:last-child {
+  width: 20px;
+  transform: rotate(-45deg) translate(2px, -2.5px);
+  transition: all 0.375s ease-in-out 0s;
+  margin: 6px 0px 0px;
+}
+.lines.count{
+  width: 80px;
+    transform-origin: bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin: 0 0 45px -25px;
+}
+.lines::after {
+  width: 100%;
+  height: 1px;
+  content: '';
+  background: #4398ed;
+}
+.lines {
+  color: #4398ed;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 80%;
+}
+.lines span {
+  margin: 0 10px 0 0;
+  font-size: 21px;
+  font-weight: 800;
+}
+.min-w-cust{
+ width:100%;
+}
+@media only screen and (max-width: 600px) {.card{
+  height: auto;
+  width: 80vw;
+}
+  .nav-kanan-mobile {
+    display: block;
+  }.lines span {
+    margin: 0 10px 0 0;
+    font-size: 10px;
+    font-weight: 800;
+  }
+  .nav-kanan {
+    display: none;
+  }.btn-primary{
+    padding: 0.5rem 1.7rem;
+   
+    border-radius: 4px;
+    color: #fff;
+    background-color: rgb(33, 201, 201);
+    outline: none;
+  }
+  
+}
+
+.overlay {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  height: 0%;
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  background-color: rgb(241 245 249 /1);
+}
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+}
+.main-heading-text span {
+  position: relative;
+}
+.main-heading-text span::after {
+  content: url("images/underline.svg");
+  bottom: -0px;
+  position: absolute;
+  transform: scale(1.8);
+  left: 30%;
+  color: #4398ed;
+  width: 60px;
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (max-width: 600px) {
+  .main-heading-text span::after {
+    bottom: -14px;
+    transform: scale(.8);
+    left: 0%;
+    width: 60px;
+  }.cust-main-img{
+    min-width: 100vw ;
+ }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cust-line-height{
+  line-height: 120%;
+
+}
+div {
+  /* border: 1px solid palegreen; */
 }
